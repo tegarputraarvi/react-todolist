@@ -11,9 +11,9 @@ const Todos = ({ todos, completeTodo })  => {
                 })
             )}
             {todos.length === 0 && (
-                <div className="todo-plachorder-text">
+                <div className="todo-placeholder-text">
                     Add todo by clicking{" "}
-                    <span className="add-button-placehorder-text">Add</span> 
+                    <span className="add-button-placeholder-text">Add</span> 
                     {" "}button on the top left corner
                 </div>
             )}
