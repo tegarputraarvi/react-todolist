@@ -1,19 +1,25 @@
 import React from 'react';
-import Todo from './Todo';
+import Todo from '../todo/Todo';
 import PropTypes from 'prop-types';
+//import { useTheme } from 'emotion-theming';
+
+// import styles from './todos.module.css';
+import * as styles from './todos.styles';
 
 const Todos = ({ todos, completeTodo })  => {
+    //const theme = useTheme();
+
     return (
-        <section className="todos">
+        <section css={ styles.todos }>
             {todos.length > 0 && (
                 todos.map((todo, index) => {
                     return <Todo key={ index } text={ todo.text } isCompleted={ todo.isCompleted } completeTodo={ completeTodo } index={ index } />;
                 })
             )}
             {todos.length === 0 && (
-                <div className="todo-placeholder-text">
+                <div css={ styles.todoPlaceholderText }>
                     Add todo by clicking{" "}
-                    <span className="add-button-placeholder-text">Add</span> 
+                    <span css={ styles.addButtonPlaceholderText }>Add</span> 
                     {" "}button on the top left corner
                 </div>
             )}

@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
 import PropStypes from 'prop-types';
+import { useTheme } from 'emotion-theming';
+
+// import styles from './todosform.module.css';
+import * as styles from './todosform.styles';
 
 const TodosForm = ({ addTodo, showAdd })  => {
+    const theme = useTheme();
+
     const [ value, setValue ] = useState("");
 
     const handleFromSubmit = e => {
@@ -24,10 +30,10 @@ const TodosForm = ({ addTodo, showAdd })  => {
 
     if (showAdd) {
         return (
-            <section className="add">
-                <form className="add-form" onSubmit={handleFromSubmit}>
-                    <input type="text" className="add-input" value={value} onChange={e => setValue(e.target.value)}/>
-                    <button className="add-btn main-black-color">Add</button>
+            <section css={ styles.add }>
+                <form css={ styles.addForm } onSubmit={handleFromSubmit}>
+                    <input type="text" css={ styles.addInput({ theme }) } value={value} onChange={e => setValue(e.target.value)}/>
+                    <button css={ styles.addBtn({ theme }) }>Add</button>
                 </form>
             </section>
         );

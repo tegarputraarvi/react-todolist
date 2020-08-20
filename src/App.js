@@ -1,12 +1,28 @@
 import React from 'react';
 import './App.css';
 
+import { ThemeProvider } from 'emotion-theming';
+
 import TodoList from './pages/TodoList';
 
-function App() {
-  return (
-      <TodoList />
-  );
+const theme = {
+  color: {
+    primary: {
+      black: "#484848",
+      red: "#e06262"
+    }
+  },
+  background: {
+    color: {
+      primary: "#f2eecb"
+    }
+  }
 }
 
-export default App;
+export default function App() {
+  return (
+    <ThemeProvider theme={ theme }>
+      <TodoList />
+    </ThemeProvider>
+  );
+}
